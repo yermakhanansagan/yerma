@@ -1,6 +1,6 @@
 import {FC, Suspense} from 'react'
 import {Route, Routes as ReactRouterRoutes} from 'react-router-dom'
-import {Page} from '../../pages/Page/Page'
+import {Page} from '../../pages/Page'
 import {routes} from '../../routes'
 import {Preloader} from '../Preloader'
 
