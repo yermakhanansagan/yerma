@@ -13,7 +13,6 @@ interface Props {
 export const Navbar: FC<Props> = ({isOpen, closeNavbar}) => {
 	const theme = useMantineTheme()
 	const isTablet = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`)
-	const isDark = theme.colorScheme === 'dark'
 
 	return (
 		<MantineNavbar hidden={!isOpen} p='md' className={clsx(isTablet && s.tabletNavbar)} hiddenBreakpoint='sm'
