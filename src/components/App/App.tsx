@@ -10,6 +10,7 @@ import {
 import {useColorScheme, useHotkeys, useLocalStorage, useMediaQuery} from '@mantine/hooks'
 import {FC, useState} from 'react'
 import {BrowserRouter} from 'react-router-dom'
+import {Aside} from '../Aside'
 import {Header} from '../Header'
 import {Navbar} from '../Navbar'
 import {Routes} from '../Routes'
@@ -23,6 +24,7 @@ export const App: FC = () => {
 		getInitialValueInEffect: true,
 	})
 	const [isNavbarOpen, setIsNavbarOpen] = useState(false)
+	const [isAsideOpen, setIsAsideOpen] = useState(false)
 	const theme = useMantineTheme()
 	const isTablet = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`)
 
@@ -42,6 +44,10 @@ export const App: FC = () => {
 		setIsNavbarOpen(false)
 	}
 
+	const closeAside = () => {
+		setIsAsideOpen(false)
+	}
+
 	useHotkeys([['mod+J', () => toggleColorScheme()]])
 
 	return (
@@ -52,11 +58,13 @@ export const App: FC = () => {
 						<AppShell
 							fixed
 							navbarOffsetBreakpoint='sm'
+							asideOffsetBreakpoint='sm'
 							header={
 								<Header toggleColorScheme={toggleColorScheme} isNavbarOpen={isNavbarOpen}
 									toggleNavbar={toggleNavbar}
 								/>}
 							navbar={<Navbar isOpen={isNavbarOpen} closeNavbar={closeNavbar}/>}
+							aside={<Aside isOpen={isAsideOpen} closeNavbar={closeAside}/>}
 						>
 							<Container px={isTablet ? 0 : 'md'} className={s.container}>
 								<Routes/>

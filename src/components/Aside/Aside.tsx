@@ -1,25 +1,25 @@
-import {Navbar as MantineNavbar, ScrollArea, useMantineTheme} from '@mantine/core'
+import {Aside as MantineAside, ScrollArea, useMantineTheme} from '@mantine/core'
 import {useMediaQuery} from '@mantine/hooks'
 import clsx from 'clsx'
 import {FC} from 'react'
 import {ButtonLink} from '../ButtonLink'
-import s from './Navbar.module.css'
+import s from './Aside.module.css'
 
 interface Props {
 	isOpen: boolean
 	closeNavbar: () => void
 }
 
-export const Navbar: FC<Props> = ({isOpen, closeNavbar}) => {
+export const Aside: FC<Props> = ({isOpen, closeNavbar}) => {
 	const theme = useMantineTheme()
 	const isTablet = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`)
 	const isDark = theme.colorScheme === 'dark'
 
 	return (
-		<MantineNavbar hidden={!isOpen} p='md' className={clsx(isTablet && s.tabletNavbar)} hiddenBreakpoint='sm'
+		<MantineAside hidden={!isOpen} p='md' className={clsx(s.aside, isTablet && s.tabletAside)} hiddenBreakpoint='sm'
 			width={{sm: 200, lg: 300}}
 		>
-			<MantineNavbar.Section grow component={ScrollArea}>
+			<MantineAside.Section grow component={ScrollArea}>
 				<ButtonLink path='/alma-mater' fullWidth callback={closeNavbar}>
 					Alma Mater
 				</ButtonLink>
@@ -41,7 +41,7 @@ export const Navbar: FC<Props> = ({isOpen, closeNavbar}) => {
 				<ButtonLink path='/leisure' fullWidth callback={closeNavbar}>
 					Досуг
 				</ButtonLink>
-			</MantineNavbar.Section>
-		</MantineNavbar>
+			</MantineAside.Section>
+		</MantineAside>
 	)
 }

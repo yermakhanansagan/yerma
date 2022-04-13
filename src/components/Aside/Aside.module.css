@@ -1,4 +1,8 @@
-.tabletNavbar {
+.aside {
+	border-left: 1px solid #e9ecef;
+}
+
+.tabletAside {
 	border-right: none;
 }
 
