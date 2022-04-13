@@ -1,4 +1,12 @@
-import {AppShell, ColorScheme, ColorSchemeProvider, Container, MantineProvider, Paper} from '@mantine/core'
+import {
+	AppShell,
+	ColorScheme,
+	ColorSchemeProvider,
+	Container,
+	MantineProvider,
+	Paper,
+	useMantineTheme,
+} from '@mantine/core'
 import {useColorScheme, useHotkeys, useLocalStorage, useMediaQuery} from '@mantine/hooks'
 import {FC, useState} from 'react'
 import {BrowserRouter} from 'react-router-dom'
@@ -15,7 +23,8 @@ export const App: FC = () => {
 		getInitialValueInEffect: true,
 	})
 	const [isNavbarOpen, setIsNavbarOpen] = useState(false)
-	const isTablet = useMediaQuery('(max-width: 800px)')
+	const theme = useMantineTheme()
+	const isTablet = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`)
 
 	const toggleColorScheme = (value?: ColorScheme) => {
 		if (value) {
@@ -42,6 +51,7 @@ export const App: FC = () => {
 					<Paper radius={0} className={s.paper}>
 						<AppShell
 							fixed
+							navbarOffsetBreakpoint='sm'
 							header={
 								<Header toggleColorScheme={toggleColorScheme} isNavbarOpen={isNavbarOpen}
 									toggleNavbar={toggleNavbar}

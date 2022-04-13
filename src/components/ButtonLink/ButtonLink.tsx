@@ -1,18 +1,22 @@
-import {Button} from '@mantine/core'
+import {Button, useMantineTheme} from '@mantine/core'
 import {SharedButtonProps} from '@mantine/core/lib/components/Button/Button'
+import {useMediaQuery} from '@mantine/hooks'
+import clsx from 'clsx'
 import {FC} from 'react'
 import {useLocation, useNavigate} from 'react-router-dom'
+import s from './ButtonLink.module.css'
 
 interface Props extends SharedButtonProps {
-	className?: string
 	path: string | string[]
-	isDark: boolean
+	fullWidth?: boolean
 	callback?: () => void
 }
 
-export const HeaderLink: FC<Props> = ({children, className, path, isDark, callback, ...rest}) => {
+export const ButtonLink: FC<Props> = ({children, path, fullWidth, callback, ...rest}) => {
 	const navigate = useNavigate()
 	const {pathname} = useLocation()
+	const theme = useMantineTheme()
+	const isTablet = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`)
 
 	const onClick = () => {
 		if (!Array.isArray(path)) {
@@ -34,10 +38,12 @@ export const HeaderLink: FC<Props> = ({children, className, path, isDark, callba
 		return pathname.startsWith(path)
 	}
 
-	const color = startsWith() ? 'blue' : isDark ? 'gray' : 'dark'
+	const color = startsWith() ? 'blue' : theme.colorScheme === 'dark' ? 'gray' : 'dark'
 
 	return (
-		<Button variant='subtle' onClick={onClick} className={className} color={color} {...rest}>
+		<Button variant='subtle' onClick={onClick} className={clsx(fullWidth && s.fullWidth)} color={color}
+			size={isTablet ? 'xl' : 'sm'} {...rest}
+		>
 			{children}
 		</Button>
 	)

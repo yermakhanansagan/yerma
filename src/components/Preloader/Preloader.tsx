@@ -4,6 +4,6 @@ import s from './Preloader.module.css'
 
 export const Preloader: FC = () => (
 	<div className={s.wrapper}>
-		<LoadingOverlay visible />
+		<LoadingOverlay visible/>
 	</div>
 )

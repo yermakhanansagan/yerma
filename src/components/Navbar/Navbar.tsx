@@ -1,9 +1,8 @@
-import {Divider, Navbar as MantineNavbar, useMantineTheme} from '@mantine/core'
+import {Navbar as MantineNavbar, ScrollArea, useMantineTheme} from '@mantine/core'
 import {useMediaQuery} from '@mantine/hooks'
 import clsx from 'clsx'
 import {FC} from 'react'
-import {ZodiacAries} from 'tabler-icons-react'
-import {HeaderLink} from '../HeaderLink'
+import {ButtonLink} from '../ButtonLink'
 import s from './Navbar.module.css'
 
 interface Props {
@@ -12,46 +11,36 @@ interface Props {
 }
 
 export const Navbar: FC<Props> = ({isOpen, closeNavbar}) => {
-	const isTablet = useMediaQuery('(max-width: 800px)')
 	const theme = useMantineTheme()
+	const isTablet = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`)
 	const isDark = theme.colorScheme === 'dark'
 
-	if (!isTablet) {
-		return null
-	}
-
 	return (
-		<MantineNavbar hidden={!isOpen} p='md' className={s.navbar}>
-			<MantineNavbar.Section>
-				<HeaderLink path='/' isDark={isDark} className={clsx(s.logoWrapper, s.button)}
-					callback={closeNavbar} size='lg' leftIcon={<ZodiacAries strokeWidth={3} className={s.logo}/>}
-				>
-					Yerma
-				</HeaderLink>
-			</MantineNavbar.Section>
-			<Divider/>
-			<MantineNavbar.Section grow mt='md'>
-				<HeaderLink path='/alma-mater' isDark={isDark} className={s.button} callback={closeNavbar} size='lg'>
+		<MantineNavbar hidden={!isOpen} p='md' className={clsx(isTablet && s.navbar)} hiddenBreakpoint='sm'
+			width={{sm: 200, lg: 300}}
+		>
+			<MantineNavbar.Section grow component={ScrollArea}>
+				<ButtonLink path='/alma-mater' fullWidth callback={closeNavbar}>
 					Alma Mater
-				</HeaderLink>
-				<HeaderLink path='/news' isDark={isDark} className={s.button} callback={closeNavbar} size='lg'>
-					Новости
-				</HeaderLink>
-				<HeaderLink path='/students' isDark={isDark} className={s.button} callback={closeNavbar} size='lg'>
-					Студенты
-				</HeaderLink>
-				<HeaderLink path='/professors' isDark={isDark} className={s.button} callback={closeNavbar} size='lg'>
-					Преподаватели
-				</HeaderLink>
-				<HeaderLink path='/education' isDark={isDark} className={s.button} callback={closeNavbar} size='lg'>
-					Образование
-				</HeaderLink>
-				<HeaderLink path='/career' isDark={isDark} className={s.button} callback={closeNavbar} size='lg'>
+				</ButtonLink>
+				<ButtonLink path='/news' fullWidth callback={closeNavbar}>
+					Новости ВГПУ
+				</ButtonLink>
+				<ButtonLink path='/essays' fullWidth callback={closeNavbar}>
+					Эссе
+				</ButtonLink>
+				<ButtonLink path='/people' fullWidth callback={closeNavbar}>
+					Люди
+				</ButtonLink>
+				<ButtonLink path='/career' fullWidth callback={closeNavbar}>
 					Карьера
-				</HeaderLink>
-				<HeaderLink path='/leisure' isDark={isDark} className={s.button} callback={closeNavbar} size='lg'>
+				</ButtonLink>
+				<ButtonLink path='/education' fullWidth callback={closeNavbar}>
+					Образование
+				</ButtonLink>
+				<ButtonLink path='/leisure' fullWidth callback={closeNavbar}>
 					Досуг
-				</HeaderLink>
+				</ButtonLink>
 			</MantineNavbar.Section>
 		</MantineNavbar>
 	)

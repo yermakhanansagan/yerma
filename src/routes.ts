@@ -14,13 +14,13 @@ export const routes: IRoute[] = [{
 	title: 'Новости',
 	Component: lazy(() => import('./pages/NewsPage').then(({NewsPage}) => ({default: NewsPage}))),
 }, {
-	path: '/students',
-	title: 'Студенты',
-	Component: lazy(() => import('./pages/StudentsPage').then(({StudentsPage}) => ({default: StudentsPage}))),
+	path: '/essays',
+	title: 'Эссе',
+	Component: lazy(() => import('./pages/EssaysPage').then(({EssaysPage}) => ({default: EssaysPage}))),
 }, {
-	path: '/professors',
-	title: 'Преподаватели',
-	Component: lazy(() => import('./pages/ProfessorsPage').then(({ProfessorsPage}) => ({default: ProfessorsPage}))),
+	path: '/people',
+	title: 'Студенты',
+	Component: lazy(() => import('./pages/PeoplePage').then(({PeoplePage}) => ({default: PeoplePage}))),
 }, {
 	path: '/education',
 	title: 'Образование',

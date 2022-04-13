@@ -1,10 +1,9 @@
-import {Burger, ColorScheme, Container, Group, Header as MantineHeader, Menu, useMantineTheme} from '@mantine/core'
+import {Burger, ColorScheme, Container, Group, Header as MantineHeader, useMantineTheme} from '@mantine/core'
 import {useMediaQuery} from '@mantine/hooks'
 import {FC} from 'react'
-import {Login, ZodiacAries} from 'tabler-icons-react'
+import {Login} from 'tabler-icons-react'
+import {ButtonLink} from '../ButtonLink'
 import {DarkModeButton} from '../DarkModeButton'
-import {HeaderLink} from '../HeaderLink'
-import {HeaderMenuItem} from '../HeaderMenuItem'
 import s from './Header.module.css'
 
 interface Props {
@@ -15,8 +14,7 @@ interface Props {
 
 export const Header: FC<Props> = ({toggleColorScheme, isNavbarOpen, toggleNavbar}) => {
 	const theme = useMantineTheme()
-	const isDark = theme.colorScheme === 'dark'
-	const isTablet = useMediaQuery('(max-width: 800px)')
+	const isTablet = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`)
 
 	const onBurgerClick = () => {
 		toggleNavbar()
@@ -29,56 +27,16 @@ export const Header: FC<Props> = ({toggleColorScheme, isNavbarOpen, toggleNavbar
 					{isTablet ? (
 						<Burger opened={isNavbarOpen} onClick={onBurgerClick} size={26} color='gray'/>
 					) : (
-						<HeaderLink path='/' isDark={isDark} px={0} className={s.logoWrapper}
-							leftIcon={<ZodiacAries strokeWidth={3} className={s.logo}/>}
+						<ButtonLink path='/' px={0} className={s.logoWrapper}
 						>
-							Yerma
-						</HeaderLink>
-					)}
-					{!isTablet && (
-						<Group>
-							<HeaderLink path='/alma-mater' isDark={isDark}>
-								Alma Mater
-							</HeaderLink>
-							<HeaderLink path='/news' isDark={isDark}>
-								Новости
-							</HeaderLink>
-							<Menu
-								placement='center'
-								trigger='hover'
-								control={
-									<div>
-										<HeaderLink path={['/students', '/professors', '/education', '/career']}
-											isDark={isDark}
-										>
-											Люди
-										</HeaderLink>
-									</div>
-								}
-							>
-								<HeaderMenuItem path='/students'>
-									Студенты
-								</HeaderMenuItem>
-								<HeaderMenuItem path='/professors'>
-									Преподаватели
-								</HeaderMenuItem>
-								<HeaderMenuItem path='/education'>
-									Образование
-								</HeaderMenuItem>
-								<HeaderMenuItem path='/career'>
-									Карьера
-								</HeaderMenuItem>
-							</Menu>
-							<HeaderLink path='/leisure' isDark={isDark}>
-								Досуг
-							</HeaderLink>
-						</Group>
+							ВГПУ
+						</ButtonLink>
 					)}
 					<Group>
-						<HeaderLink path='/auth' isDark={isDark} variant='light' rightIcon={<Login size={20}/>}>
+						<ButtonLink path='/auth' variant='light' rightIcon={<Login size={20}/>}>
 							Войти
-						</HeaderLink>
-						<DarkModeButton isDark={isDark} toggle={toggleColorScheme}/>
+						</ButtonLink>
+						<DarkModeButton toggle={toggleColorScheme}/>
 					</Group>
 				</Group>
 			</Container>

@@ -5,14 +5,14 @@ interface Props {
 	firstName: string
 	lastName: string
 	description: string
-	imgSrc: string
+	image: string
 }
 
-export const ProfileCard: FC<Props> = ({firstName, lastName, description, imgSrc}) => {
+export const ProfileCard: FC<Props> = ({firstName, lastName, description, image}) => {
 	return (
 		<Card shadow='sm' p='xl'>
-			<Card.Section>
-				<Image src={imgSrc} height={160} alt='профиль'/>
+			<Card.Section mb='sm'>
+				<Image src={image} height={160} alt='профиль'/>
 			</Card.Section>
 			<Text weight={500} size='lg'>
 				{`${firstName} ${lastName}`}

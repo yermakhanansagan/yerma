@@ -1,7 +1,3 @@
-.logo {
-	transform: rotate(180deg);
-}
-
 .logoWrapper:hover {
 	background-color: transparent;
 }

@@ -2,14 +2,6 @@
 	border-right: none;
 }
 
-.logo {
-	transform: rotate(180deg);
-}
-
-.logoWrapper:hover {
-	background-color: transparent;
-}
-
 .button {
 	width: 100%;
 	display: flex;

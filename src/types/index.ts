@@ -5,3 +5,8 @@ export interface IRoute {
 	title: string
 	Component: LazyExoticComponent<FC>
 }
+
+export interface ILogin {
+	email: string
+	password: string
+}
