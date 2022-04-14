@@ -1,5 +1,9 @@
-.aside {
+.light {
 	border-left: 1px solid #e9ecef;
+}
+
+.dark {
+	border-left: 1px solid #2c2e33;
 }
 
 .tabletAside {

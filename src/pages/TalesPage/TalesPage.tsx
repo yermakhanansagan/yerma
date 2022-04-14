@@ -2,12 +2,12 @@ import {Grid} from '@mantine/core'
 import {FC} from 'react'
 import {PostCard} from '../../components/PostCard'
 
-export const EssaysPage: FC = () => {
+export const TalesPage: FC = () => {
 	return (
 		<Grid>
 			<Grid.Col>
 				<PostCard title='Заголовок'
-				author='Yermakhan'
+				    author='Yermakhan'
 					description='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dicta dolor ex mollitia odio provident!'
 					/>
 			</Grid.Col>
