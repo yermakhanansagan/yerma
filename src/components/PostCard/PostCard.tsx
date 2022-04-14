@@ -4,13 +4,14 @@ import {FC} from 'react'
 interface Props {
 	title: string
 	description: string
-	images: string[]
+	images?: string[]
+	author?: string
 }
 
-export const PostCard: FC<Props> = ({title, description, images}) => {
+export const PostCard: FC<Props> = ({title, description, images, author}) => {
 	return (
 		<Card shadow='xl' p='xl'>
-			{images.map((image, index) => (
+			{images?.map((image, index) => (
 				<Card.Section mb='sm' key={index}>
 					<Image src={image} height={160} alt='новость' fit='cover'/>
 				</Card.Section>
@@ -18,6 +19,12 @@ export const PostCard: FC<Props> = ({title, description, images}) => {
 			<Text weight={500} size='lg'>
 				{title}
 			</Text>
+			{author ? 
+				<Text>
+					Автор: {author}
+				</Text>
+				: null
+			}
 			<Text size='sm'>
 				{description}
 			</Text>

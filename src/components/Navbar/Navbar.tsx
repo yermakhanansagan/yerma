@@ -37,9 +37,6 @@ export const Navbar: FC<Props> = ({isOpen, closeNavbar}) => {
 				<ButtonLink path='/education' fullWidth callback={closeNavbar}>
 					Образование
 				</ButtonLink>
-				<ButtonLink path='/leisure' fullWidth callback={closeNavbar}>
-					Досуг
-				</ButtonLink>
 			</MantineNavbar.Section>
 		</MantineNavbar>
 	)

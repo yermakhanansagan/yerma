@@ -34,6 +34,14 @@ export const routes: IRoute[] = [{
 	title: 'Досуг',
 	Component: lazy(() => import('./pages/LeisurePage').then(({LeisurePage}) => ({default: LeisurePage}))),
 }, {
+	path: '/tales',
+	title: 'Студенческие байки',
+	Component: lazy(() => import('./pages/TalesPage').then(({TalesPage}) => ({default: TalesPage}))),
+}, {
+	path: '/memory',
+	title: 'Память',
+	Component: lazy(() => import('./pages/MemoryPage').then(({MemoryPage}) => ({default: MemoryPage}))),
+}, {
 	path: '/auth',
 	title: 'Авторизация',
 	Component: lazy(() => import('./pages/AuthPage').then(({AuthPage}) => ({default: AuthPage}))),

@@ -13,32 +13,30 @@ interface Props {
 export const Aside: FC<Props> = ({isOpen, closeNavbar}) => {
 	const theme = useMantineTheme()
 	const isTablet = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`)
+	const isDark = theme.colorScheme === 'dark'
 
 	return (
-		<MantineAside hidden={!isOpen} p='md' className={clsx(s.aside, isTablet && s.tabletAside)} hiddenBreakpoint='sm'
+		<MantineAside hidden={!isOpen} p='md' className={clsx(isDark ? s.dark : s.light, isTablet && s.tabletAside)} hiddenBreakpoint='sm'
 			width={{sm: 200, lg: 300}}
 		>
 			<MantineAside.Section grow component={ScrollArea}>
-				<ButtonLink path='/alma-mater' fullWidth callback={closeNavbar}>
-					Alma Mater
-				</ButtonLink>
-				<ButtonLink path='/news' fullWidth callback={closeNavbar}>
-					Новости ВГПУ
-				</ButtonLink>
-				<ButtonLink path='/essays' fullWidth callback={closeNavbar}>
-					Эссе
-				</ButtonLink>
-				<ButtonLink path='/people' fullWidth callback={closeNavbar}>
-					Люди
-				</ButtonLink>
-				<ButtonLink path='/career' fullWidth callback={closeNavbar}>
-					Карьера
-				</ButtonLink>
-				<ButtonLink path='/education' fullWidth callback={closeNavbar}>
-					Образование
-				</ButtonLink>
-				<ButtonLink path='/leisure' fullWidth callback={closeNavbar}>
+			<ButtonLink path='/leisure' fullWidth callback={closeNavbar}>
 					Досуг
+				</ButtonLink>
+				<ButtonLink path='/tales' fullWidth callback={closeNavbar}>
+					Студенческие байки
+				</ButtonLink>
+				<ButtonLink path='/gallery' fullWidth callback={closeNavbar}>
+					Фото-видео-галерея
+				</ButtonLink>
+				<ButtonLink path='/muz' fullWidth callback={closeNavbar}>
+					“9 Муз”
+				</ButtonLink>
+				<ButtonLink path='/calendar' fullWidth callback={closeNavbar}>
+					Памятный календарь
+				</ButtonLink>
+				<ButtonLink path='/memory' fullWidth callback={closeNavbar}>
+					Мемory
 				</ButtonLink>
 			</MantineAside.Section>
 		</MantineAside>
