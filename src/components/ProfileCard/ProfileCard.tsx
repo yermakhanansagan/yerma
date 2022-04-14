@@ -7,29 +7,32 @@ interface Props {
 	description: string
 	image: string
 	group?: string,
-	bDay?: string,
-	dDay?: string,
+	birthDate?: number,
 }
 
-export const ProfileCard: FC<Props> = ({bDay, dDay, firstName, lastName, description, image, group}) => {
+export const ProfileCard: FC<Props> = ({birthDate, firstName, lastName, description, image, group}) => {
 	return (
 		<Card shadow='sm' p='xl'>
 			<Group position='left'>
 				<Image src={image} height={160} alt='профиль'/>
-			<div>
-			<Text weight={500} size='lg'>
-				{`${firstName} ${lastName}`}
-			</Text>
-			{group ? 
-				<Text>
-					{group}
-				</Text>
-				 : null}
-			{dDay ? <Text>{bDay} - {dDay}</Text> : null}
-			<Text size='sm'>
-				{description}
-			</Text>
-			</div>
+				<div>
+					<Text weight={500} size='lg'>
+						{firstName + ' ' + lastName}
+					</Text>
+					{group && (
+						<Text>
+							{group}
+						</Text>
+					)}
+					{birthDate && (
+						<Text>
+							{birthDate}
+						</Text>
+					)}
+					<Text size='sm'>
+						{description}
+					</Text>
+				</div>
 			</Group>
 		</Card>
 	)

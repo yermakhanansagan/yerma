@@ -16,11 +16,15 @@ export const Aside: FC<Props> = ({isOpen, closeNavbar}) => {
 	const isDark = theme.colorScheme === 'dark'
 
 	return (
-		<MantineAside hidden={!isOpen} p='md' className={clsx(isDark ? s.dark : s.light, isTablet && s.tabletAside)} hiddenBreakpoint='sm'
+		<MantineAside
+			p='md'
+			hidden={!isOpen}
+			hiddenBreakpoint='sm'
 			width={{sm: 200, lg: 300}}
+			className={clsx(isDark ? s.dark : s.light, isTablet && s.tabletAside)}
 		>
 			<MantineAside.Section grow component={ScrollArea}>
-			<ButtonLink path='/leisure' fullWidth callback={closeNavbar}>
+				<ButtonLink path='/leisure' fullWidth callback={closeNavbar}>
 					Досуг
 				</ButtonLink>
 				<ButtonLink path='/tales' fullWidth callback={closeNavbar}>

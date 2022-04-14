@@ -19,12 +19,11 @@ export const PostCard: FC<Props> = ({title, description, images, author}) => {
 			<Text weight={500} size='lg'>
 				{title}
 			</Text>
-			{author ? 
+			{author ? (
 				<Text>
 					Автор: {author}
 				</Text>
-				: null
-			}
+			) : null}
 			<Text size='sm'>
 				{description}
 			</Text>
