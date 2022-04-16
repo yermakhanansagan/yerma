@@ -40,7 +40,7 @@ export const Aside: FC<Props> = ({isOpen, closeNavbar}) => {
 					Памятный календарь
 				</ButtonLink>
 				<ButtonLink path='/memory' fullWidth callback={closeNavbar}>
-					Мемory
+					Memory
 				</ButtonLink>
 			</MantineAside.Section>
 		</MantineAside>

@@ -1,0 +1,32 @@
+.wrapper {
+	position: relative;
+}
+
+.button {
+	position: absolute;
+	top: -2px;
+	height: calc(100% + 2px);
+	z-index: 10;
+	width: 60px;
+	background: rgba(0, 0, 0, 0.2);
+}
+
+.button:hover {
+	background: var(--mantine-color-blue-6);
+}
+
+.button .icon {
+
+}
+
+.button:hover .icon {
+	stroke: var(--mantine-color-white);
+}
+
+.prevButton {
+	left: 0;
+}
+
+.nextButton {
+	right: 0;
+}

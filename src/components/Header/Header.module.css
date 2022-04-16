@@ -1,3 +1,7 @@
 .logoWrapper:hover {
 	background-color: transparent;
 }
+
+.loginButton {
+	height: 36px;
+}

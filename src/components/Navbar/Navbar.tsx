@@ -37,6 +37,28 @@ export const Navbar: FC<Props> = ({isOpen, closeNavbar}) => {
 				<ButtonLink path='/education' fullWidth callback={closeNavbar}>
 					Образование
 				</ButtonLink>
+				{isTablet && (
+					<>
+						<ButtonLink path='/leisure' fullWidth callback={closeNavbar}>
+							Досуг
+						</ButtonLink>
+						<ButtonLink path='/tales' fullWidth callback={closeNavbar}>
+							Студенческие байки
+						</ButtonLink>
+						<ButtonLink path='/gallery' fullWidth callback={closeNavbar}>
+							Фото-видео-галерея
+						</ButtonLink>
+						<ButtonLink path='/muz' fullWidth callback={closeNavbar}>
+							“9 Муз”
+						</ButtonLink>
+						<ButtonLink path='/calendar' fullWidth callback={closeNavbar}>
+							Памятный календарь
+						</ButtonLink>
+						<ButtonLink path='/memory' fullWidth callback={closeNavbar}>
+							Memory
+						</ButtonLink>
+					</>
+				)}
 			</MantineNavbar.Section>
 		</MantineNavbar>
 	)
