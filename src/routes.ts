@@ -17,6 +17,7 @@ export const routes: IRoute[] = [{
 }, {
 	path: '/essays',
 	title: 'Эссе',
+	withCreateButton: true,
 	Component: lazy(() => import('./pages/EssaysPage').then(({EssaysPage}) => ({default: EssaysPage}))),
 }, {
 	path: '/people',

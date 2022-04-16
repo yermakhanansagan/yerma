@@ -8,8 +8,10 @@ export const Routes: FC = () => {
 	return (
 		<Suspense fallback={<Preloader/>}>
 			<ReactRouterRoutes>
-				{routes.map(({path, title, Component}) => (
-					<Route key={path} path={path} element={<Page title={title} Component={Component}/>}/>
+				{routes.map(({path, title, Component, withCreateButton}) => (
+					<Route key={path} path={path}
+						element={<Page title={title} Component={Component} withCreateButton={withCreateButton}/>}
+					/>
 				))}
 			</ReactRouterRoutes>
 		</Suspense>

@@ -4,6 +4,7 @@ export interface IRoute {
 	path: string
 	title: string
 	Component: LazyExoticComponent<FC>
+	withCreateButton?: boolean
 }
 
 export interface ILogin {
@@ -14,4 +15,9 @@ export interface ILogin {
 export interface ICreate {
 	title: string
 	description: string
+}
+
+export interface IHeaderContext {
+	withCreateButton: boolean
+	setWithCreateButton: (value: boolean) => void
 }
