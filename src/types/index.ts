@@ -10,3 +10,8 @@ export interface ILogin {
 	email: string
 	password: string
 }
+
+export interface ICreate {
+	title: string
+	description: string
+}

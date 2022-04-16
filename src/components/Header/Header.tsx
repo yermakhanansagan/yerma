@@ -9,8 +9,10 @@ import {
 	useMantineTheme,
 } from '@mantine/core'
 import {useMediaQuery} from '@mantine/hooks'
+import clsx from 'clsx'
 import {FC, useState} from 'react'
-import {Login, Search} from 'tabler-icons-react'
+import {useNavigate} from 'react-router-dom'
+import {Login, Plus, Search} from 'tabler-icons-react'
 import {ButtonLink} from '../ButtonLink'
 import {DarkModeButton} from '../DarkModeButton'
 import s from './Header.module.css'
@@ -23,6 +25,7 @@ interface Props {
 
 export const Header: FC<Props> = ({toggleColorScheme, isNavbarOpen, toggleNavbar}) => {
 	const theme = useMantineTheme()
+	const navigate = useNavigate()
 	const isTablet = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`)
 	const [isModalOpen, setIsModalOpen] = useState(false)
 
@@ -36,6 +39,10 @@ export const Header: FC<Props> = ({toggleColorScheme, isNavbarOpen, toggleNavbar
 
 	const onSearchClick = () => {
 		setIsModalOpen(true)
+	}
+
+	const onCreateClick = () => {
+		navigate('/create')
 	}
 
 	return (
@@ -62,7 +69,18 @@ export const Header: FC<Props> = ({toggleColorScheme, isNavbarOpen, toggleNavbar
 					) : (
 						<TextInput placeholder='Поиск' icon={<Search size={18}/>}/>
 					)}
-					<ButtonLink path='/auth' variant='light' size={isTablet ? 'sm' : 'md'} className={s.loginButton}
+					{isTablet ? (
+						<ActionIcon size={36} variant='outline' onClick={onCreateClick}>
+							<Plus size={18}/>
+						</ActionIcon>
+					) : (
+						<ButtonLink path='/create' variant='outline' size={isTablet ? 'sm' : 'md'}
+							className={clsx(s.button, s.addButton)} rightIcon={<Plus size={18}/>}
+						>
+							Добавить
+						</ButtonLink>
+					)}
+					<ButtonLink path='/auth' variant='light' size={isTablet ? 'sm' : 'md'} className={s.button}
 						rightIcon={<Login size={18}/>}
 					>
 						Войти

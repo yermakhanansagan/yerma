@@ -1,4 +1,5 @@
 import {lazy} from 'react'
+import {CreatePage} from './pages/CreatePage'
 import {IRoute} from './types'
 
 export const routes: IRoute[] = [{
@@ -41,6 +42,10 @@ export const routes: IRoute[] = [{
 	path: '/memory',
 	title: 'Память',
 	Component: lazy(() => import('./pages/MemoryPage').then(({MemoryPage}) => ({default: MemoryPage}))),
+}, {
+	path: '/create',
+	title: 'Добавить',
+	Component: lazy(() => import('./pages/CreatePage').then(({CreatePage}) => ({default: CreatePage}))),
 }, {
 	path: '/auth',
 	title: 'Авторизация',

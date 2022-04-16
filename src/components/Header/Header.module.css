@@ -2,6 +2,11 @@
 	background-color: transparent;
 }
 
-.loginButton {
+.button {
 	height: 36px;
+}
+
+.addButton {
+	border-color: var(--mantine-color-dark-0);
+	color: var(--mantine-color-dark-4);
 }
