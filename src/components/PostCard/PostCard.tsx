@@ -26,7 +26,11 @@ export const PostCard: FC<Props> = ({title, description, images, author}) => {
 				</Text>
 			) : null}
 			<Text size='sm'>
-				{description}
+				{description.split('\\n').map(text => text ? (
+					<div>{text}</div>
+				) : (
+					<br/>
+				))}
 			</Text>
 		</Card>
 	)

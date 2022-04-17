@@ -59,7 +59,7 @@ export const App: FC = () => {
 								navbar={<Navbar isOpen={isNavbarOpen} closeNavbar={closeNavbar}/>}
 								aside={<Aside isOpen={isAsideOpen} closeNavbar={closeAside}/>}
 							>
-								<Container pl={0} pr='md' className={s.container}>
+								<Container px={0} className={s.container}>
 									<Routes/>
 								</Container>
 							</AppShell>
