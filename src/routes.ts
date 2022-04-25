@@ -20,16 +20,22 @@ export const routes: IRoute[] = [{
 	withCreateButton: true,
 	Component: lazy(() => import('./pages/EssaysPage').then(({EssaysPage}) => ({default: EssaysPage}))),
 }, {
-	path: '/people',
-	title: 'Студенты',
-	Component: lazy(() => import('./pages/PeoplePage').then(({PeoplePage}) => ({default: PeoplePage}))),
+	path: '/teachers',
+	title: 'Преподователи',
+	Component: lazy(() => import('./pages/TeachersPage').then(({TeachersPage}) => ({default: TeachersPage}))),
+}, {
+	path: '/alumni',
+	title: 'Выпускники',
+	Component: lazy(() => import('./pages/AlumniPage').then(({AlumniPage}) => ({default: AlumniPage}))),
 }, {
 	path: '/education',
 	title: 'Образование',
+	withCreateButton: true,
 	Component: lazy(() => import('./pages/EducationPage').then(({EducationPage}) => ({default: EducationPage}))),
 }, {
 	path: '/career',
 	title: 'Карьера',
+	withCreateButton: true,
 	Component: lazy(() => import('./pages/CareerPage').then(({CareerPage}) => ({default: CareerPage}))),
 }, {
 	path: '/leisure',
@@ -38,7 +44,23 @@ export const routes: IRoute[] = [{
 }, {
 	path: '/tales',
 	title: 'Студенческие байки',
+	withCreateButton: true,
 	Component: lazy(() => import('./pages/TalesPage').then(({TalesPage}) => ({default: TalesPage}))),
+}, {
+	path: '/gallery',
+	title: 'Галлерея',
+	withCreateButton: true,
+	Component: lazy(() => import('./pages/GalleryPage').then(({GalleryPage}) => ({default: GalleryPage}))),
+}, {
+	path: '/muz',
+	title: '9 муз',
+	withCreateButton: true,
+	Component: lazy(() => import('./pages/MuzPage').then(({MuzPage}) => ({default: MuzPage}))),
+}, {
+	path: '/calendar',
+	title: 'Календарь',
+	withCreateButton: true,
+	Component: lazy(() => import('./pages/CalendarPage').then(({CalendarPage}) => ({default: CalendarPage}))),
 }, {
 	path: '/memory',
 	title: 'Память',

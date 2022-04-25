@@ -56,7 +56,7 @@ export const Header: FC<Props> = ({toggleColorScheme, isNavbarOpen, toggleNavbar
 					<ButtonLink path='/' px={0} className={s.logoWrapper}
 					>
 						ВГПУ
-					</ButtonLink>
+					</ButtonLink>	
 				)}
 				<Group>
 					{withCreateButton && (isTablet ? (

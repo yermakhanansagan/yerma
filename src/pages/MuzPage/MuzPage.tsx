@@ -2,7 +2,7 @@ import {Grid} from '@mantine/core'
 import {FC} from 'react'
 import {PostCard} from '../../components/PostCard'
 
-export const EducationPage: FC = () => {
+export const MuzPage: FC = () => {
 	return (
 		<Grid>
 			<Grid.Col>

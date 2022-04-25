@@ -28,8 +28,11 @@ export const Navbar: FC<Props> = ({isOpen, closeNavbar}) => {
 				<ButtonLink path='/essays' fullWidth callback={closeNavbar}>
 					Эссе
 				</ButtonLink>
-				<ButtonLink path='/people' fullWidth callback={closeNavbar}>
-					Люди
+				<ButtonLink path='/teachers' fullWidth callback={closeNavbar}>
+					Преподователи
+				</ButtonLink>
+				<ButtonLink path='/alumni' fullWidth callback={closeNavbar}>
+					Выпускники
 				</ButtonLink>
 				<ButtonLink path='/career' fullWidth callback={closeNavbar}>
 					Карьера
