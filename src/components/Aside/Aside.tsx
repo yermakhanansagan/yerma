@@ -21,7 +21,7 @@ export const Aside: FC<Props> = ({isOpen, closeNavbar}) => {
 			hidden={!isOpen}
 			hiddenBreakpoint='sm'
 			width={{sm: 200, lg: 300}}
-			className={clsx(isDark ? s.dark : s.light, isTablet && s.tabletAside)}
+			className={clsx(s.aside, isDark ? s.dark : s.light, isTablet && s.tabletAside)}
 		>
 			<MantineAside.Section grow component={ScrollArea}>
 				<ButtonLink path='/leisure' fullWidth callback={closeNavbar}>
