@@ -5,6 +5,7 @@ import {
 	Group,
 	Header as MantineHeader,
 	Modal,
+	Text,
 	TextInput,
 	useMantineTheme,
 } from '@mantine/core'
@@ -55,8 +56,12 @@ export const Header: FC<Props> = ({toggleColorScheme, isNavbarOpen, toggleNavbar
 				) : (
 					<ButtonLink path='/' px={0} className={s.logoWrapper}
 					>
-						ВГПУ
-					</ButtonLink>	
+						<Group align='center'>
+							<Text>ВГПУ</Text>
+							<Text>|</Text>
+							<Text size='lg'>Vinnitsa.kz</Text>
+						</Group>
+					</ButtonLink>
 				)}
 				<Group>
 					{withCreateButton && (isTablet ? (

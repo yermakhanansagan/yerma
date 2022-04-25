@@ -9,7 +9,7 @@ interface Props {
 }
 
 export const Page: FC<Props> = ({title, Component, withCreateButton}) => {
-	useDocumentTitle(title)
+	useDocumentTitle(`${title} | ВГПУ`)
 	const {setWithCreateButton} = useContext(HeaderContext)
 
 	useEffect(() => {
