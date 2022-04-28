@@ -74,6 +74,7 @@ export interface IPostImage {
 export interface ICreatePost {
 	author: string
 	categories: PostCategoryEnum[]
+	name: string
 	description: string
 	images: string[]
 }

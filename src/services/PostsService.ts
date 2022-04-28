@@ -14,12 +14,12 @@ export class PostsService {
 		return $api.get(`posts/${postId}/`)
 	}
 
-	static async updatePost(postId: string): AxiosPromise<IPost> {
-		return $api.put(`posts/${postId}/`)
+	static async updatePost(postId: string, post: ICreatePost): AxiosPromise<IPost> {
+		return $api.put(`posts/${postId}/`, post)
 	}
 
-	static async partiallyUpdatePost(postId: string): AxiosPromise<IPost> {
-		return $api.patch(`posts/${postId}/`)
+	static async partiallyUpdatePost(postId: string, post: ICreatePost): AxiosPromise<IPost> {
+		return $api.patch(`posts/${postId}/`, post)
 	}
 
 	static async deletePost(postId: string): AxiosPromise {
