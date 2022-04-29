@@ -1,6 +1,6 @@
 import {Grid} from '@mantine/core'
 import {FC} from 'react'
-import {ProfileCard} from '../../components/ProfileCard'
+import {ProfileCard} from '../../components'
 
 export const AlumniPage: FC = () => {
 	return (

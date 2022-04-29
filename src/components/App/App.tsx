@@ -1,15 +1,17 @@
 import {AppShell, ColorScheme, ColorSchemeProvider, Container, MantineProvider, Paper} from '@mantine/core'
 import {useColorScheme, useHotkeys, useLocalStorage} from '@mantine/hooks'
-import {FC, useState} from 'react'
+import {observer} from 'mobx-react-lite'
+import {FC, useEffect, useState} from 'react'
 import {BrowserRouter} from 'react-router-dom'
 import {HeaderContext} from '../../context'
+import {appState} from '../../store'
 import {Aside} from '../Aside'
 import {Header} from '../Header'
 import {Navbar} from '../Navbar'
 import {Routes} from '../Routes'
 import s from './App.module.css'
 
-export const App: FC = () => {
+export const App: FC = observer(() => {
 	const preferredColorScheme = useColorScheme()
 	const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
 		key: 'color-scheme',
@@ -42,6 +44,12 @@ export const App: FC = () => {
 
 	useHotkeys([['mod+J', () => toggleColorScheme()]])
 
+	useEffect(() => {
+		(async () => {
+			await appState.initializeApp()
+		})()
+	}, [])
+
 	return (
 		<BrowserRouter>
 			<ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
@@ -69,4 +77,4 @@ export const App: FC = () => {
 			</ColorSchemeProvider>
 		</BrowserRouter>
 	)
-}
+})

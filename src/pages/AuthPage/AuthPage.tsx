@@ -1,36 +1,34 @@
-import {Box, Button, Group, PasswordInput, TextInput} from '@mantine/core'
-import {useForm} from '@mantine/hooks'
-import {FC} from 'react'
-import {At, Lock} from 'tabler-icons-react'
-import {ILogin} from '../../types'
+import {Button, Card, Divider, Group, Text} from '@mantine/core'
+import {FC, useState} from 'react'
+import {LoginForm, RegisterForm} from '../../components/Auth'
 
 export const AuthPage: FC = () => {
-	const form = useForm<ILogin>({
-		initialValues: {
-			email: '',
-			password: '',
-		},
-		validationRules: {
-			email: value => /^\S+@\S+\.\S+$/.test(value),
-			password: value => /^\S+$/.test(value),
-		},
-		errorMessages: {
-			email: 'Неправильный формат',
-			password: 'Введите пароль',
-		},
-	})
+	const [isLogin, setIsLogin] = useState(true)
+
+	const toggleMode = () => {
+		setIsLogin(prev => !prev)
+	}
 
 	return (
-		<Box sx={{maxWidth: 300}} mx='auto' mt='lg'>
-			<form onSubmit={form.onSubmit(values => console.log(values))}>
-				<TextInput label='Email' {...form.getInputProps('email')} icon={<At size={14}/>}/>
-				<PasswordInput label='Пароль' {...form.getInputProps('password')}
-					icon={<Lock size={14}/>}
-				/>
-				<Group position='center' mt='md'>
-					<Button type='submit'>Войти</Button>
+		<Card sx={{maxWidth: 300}} mx='auto' mt='lg' shadow='xl'>
+			<Card.Section p='md'>
+				<Group position='apart'>
+					<Text>
+						{isLogin ? 'Вход' : 'Регистрация'}
+					</Text>
+					<Button onClick={toggleMode} variant='subtle'>
+						{isLogin ? 'Зарегистрироваться' : 'Войти'}
+					</Button>
 				</Group>
-			</form>
-		</Box>
+			</Card.Section>
+			<Divider mx='-md'/>
+			<Card.Section p='md'>
+				{isLogin ? (
+					<LoginForm/>
+				) : (
+					<RegisterForm/>
+				)}
+			</Card.Section>
+		</Card>
 	)
 }

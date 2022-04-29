@@ -1,12 +1,20 @@
 import {$api} from '../api'
-import {AxiosPromise} from '../types'
+import {ILogin, IToken, IUser} from '../types'
 
 export class AuthService {
-	static async login(email: string, password: string): AxiosPromise {
-		return $api.post('users/token/', {email, password})
+	static async login(data: ILogin): Promise<IToken> {
+		return $api.post('users/token/', data)
 	}
 
-	static async register(): AxiosPromise {
+	static async refreshToken(refreshToken: string): Promise<IToken> {
+		return $api.post('users/token/refresh/', {refresh: refreshToken})
+	}
+
+	static async getUserInfo(): Promise<IUser> {
+		return $api.get('users/me/')
+	}
+
+	static async register(): Promise<null> {
 		return $api.post('')
 	}
 }

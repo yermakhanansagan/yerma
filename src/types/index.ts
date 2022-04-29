@@ -1,4 +1,3 @@
-import {AxiosResponse} from 'axios'
 import {FC, LazyExoticComponent} from 'react'
 
 export interface IRoute {
@@ -6,6 +5,7 @@ export interface IRoute {
 	title: string
 	Component: LazyExoticComponent<FC>
 	withCreateButton?: boolean
+	postCategory?: PostCategoryEnum
 }
 
 export interface ILogin {
@@ -23,22 +23,11 @@ export interface IHeaderContext {
 	setWithCreateButton: (value: boolean) => void
 }
 
-export type AxiosPromise<T = null> = Promise<AxiosResponse<T>>
-
 export interface IUser {
 	uuid: string
+	email: string
 	created_at: string
 	updated_at: string
-	human: IHuman
-}
-
-export interface IHuman {
-	uuid: string
-	created_at: string
-	updated_at: string
-	first_name: string
-	last_name: string
-	middle_name?: string
 }
 
 export enum PostCategoryEnum {
@@ -77,4 +66,9 @@ export interface ICreatePost {
 	name: string
 	description: string
 	images: string[]
+}
+
+export interface IToken {
+	access: string
+	refresh: string
 }

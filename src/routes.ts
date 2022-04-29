@@ -1,6 +1,6 @@
 import {lazy} from 'react'
-import {CreatePage} from './pages/CreatePage'
-import {IRoute} from './types'
+import {CreatePage} from './pages'
+import {IRoute, PostCategoryEnum} from './types'
 
 export const routes: IRoute[] = [{
 	path: '/',
@@ -10,15 +10,18 @@ export const routes: IRoute[] = [{
 	path: '/alma-mater',
 	title: 'Alma Mater',
 	Component: lazy(() => import('./pages/AlmaMaterPage').then(({AlmaMaterPage}) => ({default: AlmaMaterPage}))),
+	postCategory: PostCategoryEnum.POST,
 }, {
 	path: '/news',
 	title: 'Новости',
 	Component: lazy(() => import('./pages/NewsPage').then(({NewsPage}) => ({default: NewsPage}))),
+	postCategory: PostCategoryEnum.NEWS,
 }, {
 	path: '/essays',
 	title: 'Эссе',
 	withCreateButton: true,
 	Component: lazy(() => import('./pages/EssaysPage').then(({EssaysPage}) => ({default: EssaysPage}))),
+	postCategory: PostCategoryEnum.ESSAY,
 }, {
 	path: '/teachers',
 	title: 'Преподователи',
@@ -32,30 +35,36 @@ export const routes: IRoute[] = [{
 	title: 'Образование',
 	withCreateButton: true,
 	Component: lazy(() => import('./pages/EducationPage').then(({EducationPage}) => ({default: EducationPage}))),
+	postCategory: PostCategoryEnum.EDUCATION,
 }, {
 	path: '/career',
 	title: 'Карьера',
 	withCreateButton: true,
 	Component: lazy(() => import('./pages/CareerPage').then(({CareerPage}) => ({default: CareerPage}))),
+	postCategory: PostCategoryEnum.CAREER,
 }, {
 	path: '/leisure',
 	title: 'Досуг',
 	Component: lazy(() => import('./pages/LeisurePage').then(({LeisurePage}) => ({default: LeisurePage}))),
+	postCategory: PostCategoryEnum.LEISURE,
 }, {
 	path: '/tales',
 	title: 'Студенческие байки',
 	withCreateButton: true,
 	Component: lazy(() => import('./pages/TalesPage').then(({TalesPage}) => ({default: TalesPage}))),
+	postCategory: PostCategoryEnum.TALE,
 }, {
 	path: '/gallery',
-	title: 'Галлерея',
+	title: 'Галерея',
 	withCreateButton: true,
 	Component: lazy(() => import('./pages/GalleryPage').then(({GalleryPage}) => ({default: GalleryPage}))),
+	postCategory: PostCategoryEnum.GALLERY,
 }, {
 	path: '/muz',
 	title: '9 муз',
 	withCreateButton: true,
 	Component: lazy(() => import('./pages/MuzPage').then(({MuzPage}) => ({default: MuzPage}))),
+	postCategory: PostCategoryEnum.MUSE,
 }, {
 	path: '/calendar',
 	title: 'Календарь',
